@@ -112,12 +112,14 @@ body {
 .last-name {
   margin-top: 0px;
   /* Déplace le last name au-dessus du photo-profil */
-  margin-bottom: 0;
-  /* Supprime le margin-bottom par défaut */
-  z-index: 1;
+  margin-bottom: -10px;
+  /* overlap du nom sur la photo de profil */
+  z-index: 2;
   /* Positionne le last name au-dessus de la photo-profil */
   font-family: 'Lexend', sans-serif;
   font-weight: 400;
+  margin-bottom: -40px;
+  
 }
 
 .profil {
@@ -127,49 +129,44 @@ body {
   margin-bottom: 54px;
 }
 
-.photo-profil {
-  align-items: center;
+.photo-profil-container {
   position: relative;
-  top: 100%;
-  margin-top: -16px;
-  /* Ajuste l'espacement entre le last name et la photo-profil */
-  margin-bottom: 4px;
   width: 150px;
-  /* Ajustez la largeur et la hauteur selon vos besoins */
   height: 150px;
-  border-radius: 50%;
-  /* Rend le conteneur circulaire */
-  overflow: hidden;
-  /* Cache le contenu débordant */
-  border: 0px solid #ffffff;
-  /* Ajoute une bordure si nécessaire */
-  position: relative;
-  /* Rend la position absolue relative à ce conteneur */
+  margin: 16px 0;
+  
 }
 
-.photo-profil::after {
-  content: ""; /* Obligatoire pour les pseudo-éléments */
-  position: absolute; /* Position absolue par rapport au parent */
-  top: -25px; /* Décalage vers le haut pour que le flou dépasse */
-  left: -25px; /* Décalage vers la gauche pour que le flou dépasse */
-  right: -25px; /* Décalage vers la droite pour que le flou dépasse */
-  bottom: -25px; /* Décalage vers le bas pour que le flou dépasse */
-  z-index: -1; /* Place le flou en arrière-plan */
-  border-radius: 50%; /* Rend le flou circulaire */
-  box-shadow: 0 0 20px rgba(255, 255, 255, 0.9), 0 0 40px rgba(255, 255, 255, 0.9); /* Ajoute un effet de flou */
+.photo-profil {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  overflow: hidden;
+  position: relative;
+  z-index: 1; /* Assure que la photo est au-dessus du glow */
 }
 
 .photo-profil img {
   position: absolute;
-  top: 35%;
-  left: 50%;
-  transform: translate(-50%, -50%);
+  /* Repositionnement de la photo */
+  top: -65%;
+  left: -20%;
   width: 140%;
-  /* Pour couvrir entièrement le masque */
   height: auto;
-  /* Ajuster la hauteur de l'image proportionnellement */
-  display: block;
+  object-fit: cover;
 }
+
+.photo-profil-glow {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  border-radius: 50%;
+  z-index: -1; /* Place le flou en arrière-plan */
+  box-shadow: 0 0 20px rgba(255, 255, 255, 0.9), 0 0 40px rgba(255, 255, 255, 0.9); /* Ajoute un effet de flou */
+}
+
 
 .link-container {
   display: flex;
@@ -211,7 +208,7 @@ body {
 
   /* Effet glassmorphism */
   border: 1px solid rgba(255, 255, 255, 0.1);
-  box-shadow: 0 0 20px rgba(229, 220, 236, 0.45);
+  box-shadow: 0 0 15px rgba(229, 220, 236, 0.45);
   border-radius: 10px;
   backdrop-filter: blur(13.5px);
   -webkit-backdrop-filter: blur(13.5px);
@@ -263,8 +260,6 @@ body {
 
 /* Style pour les icônes de réseaux sociaux au clic */
 .social-icon:active {
-  color: rgba(76, 50, 139, 0.45);
-  /* Couleur mauve au clic */ /* Pq ça change pas en mauve? */
   filter: blur(1px);
   /* Ajoute un flou au clic */
 }
