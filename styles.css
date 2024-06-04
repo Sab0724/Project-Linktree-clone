@@ -29,7 +29,7 @@ body {
 .background {
   margin: 0;
   padding: 0;
-  height: 800px; /* Utilise toute la hauteur de la fenêtre */
+  height: 800px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -100,27 +100,30 @@ body {
   /* Nouvelle couleur du texte au clique */
 }
 
-
-
-.first-name {
-  margin-bottom: -2px;
-  /* Spacing de -2px entre le first name et le last name */
+.full-name {
+  display: flex;
+  align-items: center;  /* Centre horizontalement */
+  justify-content: center; /* Centre verticalement */
+  position: relative;
   font-family: 'Lexend', sans-serif;
   font-weight: 400;
+  color: #38206F;
+}
+
+.first-name, .last-name {
+  display: flex;
+  position: absolute;
+}
+
+.first-name {
+  top: 10px;
 }
 
 .last-name {
-  margin-top: 0px;
-  /* Déplace le last name au-dessus du photo-profil */
-  margin-bottom: -10px;
-  /* overlap du nom sur la photo de profil */
   z-index: 2;
-  /* Positionne le last name au-dessus de la photo-profil */
-  font-family: 'Lexend', sans-serif;
-  font-weight: 400;
-  margin-bottom: -40px;
-  
+  top: 40px; /* Ajustez cette valeur pour contrôler le chevauchement */
 }
+
 
 .profil {
   display: flex;
@@ -134,6 +137,7 @@ body {
   width: 150px;
   height: 150px;
   margin: 16px 0;
+  margin-bottom: -10px;
   
 }
 
@@ -164,7 +168,7 @@ body {
   bottom: 0;
   border-radius: 50%;
   z-index: -1; /* Place le flou en arrière-plan */
-  box-shadow: 0 0 20px rgba(255, 255, 255, 0.9), 0 0 40px rgba(255, 255, 255, 0.9); /* Ajoute un effet de flou */
+  box-shadow: 0 0 50px rgba(255, 255, 255, 0.7), 0 0 75px rgba(255, 255, 255, 0.2); /* Ajoute un effet de flou */
 }
 
 
@@ -205,6 +209,12 @@ body {
   /* Curseur de type pointer pour indiquer que le bouton est cliquable */
   background-color: rgba(170, 144, 233, 0.45);
   backdrop-filter: blur(5px);
+  text-align: center;
+  color: #F4EFFE;
+  font-size: 16px;
+  font-family: 'Lexend', sans-serif;
+  font-weight: 400;
+  word-wrap: break-word;
 
   /* Effet glassmorphism */
   border: 1px solid rgba(255, 255, 255, 0.1);
@@ -228,17 +238,9 @@ body {
   /* Nouvelle couleur du texte */
 }
 
-.content {
-  text-align: center;
-  color: #F4EFFE;
-  font-size: 16px;
-  font-family: 'Lexend', sans-serif;
-  font-weight: 400;
-  word-wrap: break-word;
-}
 
 
-.reseaux-sociaux {
+.social-icon-container {
   margin-bottom: 39px;
   display: flex;
   justify-content: center;
@@ -264,6 +266,7 @@ body {
   /* Ajoute un flou au clic */
 }
 
+
 /* Style pour le titre h1 */
 h1 {
   color: #38206F;
@@ -271,6 +274,7 @@ h1 {
   line-height: 30px;
   font-family: 'Lexend', sans-serif;
 }
+
 
 /* Style pour les paragraphes */
 .medium-body {
