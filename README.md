@@ -29,4 +29,4 @@ Ce projet est une page de profil de type Linktree permettant de regrouper les li
 1. Clonez ce dépôt sur votre machine locale.
 
    ```bash
-   git clone https://github.com/Sab0724/Linktree-clone.git
+   git clone [https://github.com/Sab0724/Linktree-clone.git]
